@@ -1,0 +1,19 @@
+{
+  "name": "reatc-practise",
+  "version": "1.0.0",
+  "main": "App.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KuncheLokesh/namaste-react.git"
+  },
+  "author": "lokesh",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/KuncheLokesh/namaste-react/issues"
+  },
+  "homepage": "https://github.com/KuncheLokesh/namaste-react#readme",
+  "description": ""
+}
