@@ -15,5 +15,8 @@
     "url": "https://github.com/KuncheLokesh/namaste-react/issues"
   },
   "homepage": "https://github.com/KuncheLokesh/namaste-react#readme",
-  "description": ""
+  "description": "learn react in the deepth",
+  "devDependencies": {
+    "parcel": "^2.12.0"
+  }
 }
