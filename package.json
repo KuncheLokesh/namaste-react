@@ -16,6 +16,11 @@
   "homepage": "https://github.com/KuncheLokesh/namaste-react#readme",
   "description": "learn react in the deepth",
   "devDependencies": {
-    "parcel": "^2.12.0"
+    "parcel": "^2.12.0",
+    "process": "^0.11.10"
+  },
+  "dependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
   }
 }
