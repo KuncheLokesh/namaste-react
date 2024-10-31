@@ -26,50 +26,95 @@
   }
   
   /* Header */
-  .header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 16px;
-    background-color: #333;
-    color: white;
-  }
-  
-  .logo img {
-    width: 60px;
-    height: auto;
-    border-radius: 8px;
-  }
-  
-  .nav-bar ul {
-    list-style: none;
-    display: flex;
-    gap: 20px;
-  }
-  
-  .nav-bar li {
-    color: white;
-    cursor: pointer;
-    font-weight: bold;
-    transition: color 0.3s;
-  }
-  
-  .nav-bar li:hover {
-    color: #ff6600;
-  }
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px;
+  background-color: #333;
+  color: white;
+}
+
+/* Logo */
+.logo img {
+  width: 60px;
+  height: auto;
+  border-radius: 8px;
+}
+
+/* Navigation Bar */
+.nav-bar ul {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin: 0;
+  padding: 0;
+}
+
+/* Navigation Links */
+.nav-bar li {
+  font-weight: bold;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.nav-bar li a {
+  color: white;
+  text-decoration: none;
+  padding: 8px 12px;
+  border-radius: 4px;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.nav-bar li a:hover {
+  color: #ff6600;
+  background-color: rgba(255, 102, 0, 0.1);
+}
+
+/* Login Button */
+.loginbtn {
+  padding: 8px 16px;
+  font-size: 1rem;
+  font-weight: bold;
+  color: white;
+  background-color: #ff6600;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s;
+  margin-left: 20px;
+}
+
+.loginbtn:hover {
+  background-color: #ff8533;
+  transform: translateY(-2px);
+}
+
+.loginbtn:active {
+  transform: translateY(1px);
+}
+
   
   /* Body */
-  .appbody {
-    padding: 20px;
-  }
-  
-  .search {
-    width: 100%;
-    margin-bottom: 20px;
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-  }
+ /* Body container */
+.appbody {
+  max-width: 1200px;
+  margin: 20px auto;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+  color: #333;
+}
+
+.res-container a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Remove underline from all links in the appbody container */
+.appbody a {
+  text-decoration: none;
+}
   
   /* Restaurant Card */
   .res-container {
@@ -236,6 +281,338 @@
 }
 
 
+.about-container {
+  padding: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+  font-family: Arial, sans-serif;
+  color: #333;
+}
+
+/* Introduction Section */
+.intro-section {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.intro-section h1 {
+  font-size: 2.5rem;
+  color: #ff5722;
+  margin-bottom: 10px;
+}
+
+.intro-section p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #666;
+}
+
+/* Features Section */
+.features-section {
+  margin: 40px 0;
+  text-align: center;
+}
+
+.features-section h2 {
+  font-size: 2rem;
+  color: #ff5722;
+  margin-bottom: 20px;
+}
+
+.features-grid {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.feature-item {
+  background-color: #f5f5f5;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 250px;
+}
+
+.feature-item h3 {
+  font-size: 1.5rem;
+  color: #4CAF50;
+  margin-bottom: 10px;
+}
+
+.feature-item p {
+  color: #666;
+}
+
+/* Team Section */
+.team-section {
+  margin: 40px 0;
+  text-align: center;
+}
+
+.team-section h2 {
+  font-size: 2rem;
+  color: #ff5722;
+  margin-bottom: 20px;
+}
+
+.team-grid {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.team-member {
+  text-align: center;
+  width: 180px;
+}
+
+.team-member img {
+  width: 100%;
+  border-radius: 50%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.team-member h4 {
+  font-size: 1.2rem;
+  color: #333;
+  margin-top: 10px;
+}
+
+.team-member p {
+  font-size: 0.9rem;
+  color: #666;
+}
+
+/* Testimonials Section */
+.testimonials-section {
+  text-align: center;
+  margin: 40px 0;
+}
+
+.testimonials-section h2 {
+  font-size: 2rem;
+  color: #ff5722;
+  margin-bottom: 20px;
+}
+
+.testimonial {
+  max-width: 600px;
+  margin: 0 auto 20px;
+  padding: 20px;
+  border-radius: 8px;
+  background-color: #f5f5f5;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.testimonial p {
+  font-style: italic;
+  color: #555;
+}
+
+.testimonial h5 {
+  margin-top: 10px;
+  color: #333;
+  font-weight: bold;
+}
+
+.contact-container {
+  padding: 40px;
+  max-width: 1000px;
+  margin: 0 auto;
+  font-family: Arial, sans-serif;
+  color: #333;
+}
+
+/* Contact Form Section */
+.contact-form-section {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.contact-form-section h1 {
+  font-size: 2.5rem;
+  color: #ff5722;
+  margin-bottom: 10px;
+}
+
+.contact-form-section p {
+  font-size: 1.1rem;
+  color: #666;
+  margin-bottom: 20px;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.contact-form label {
+  width: 100%;
+  max-width: 500px;
+  text-align: left;
+  margin-top: 10px;
+  font-size: 1rem;
+  color: #333;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  max-width: 500px;
+  padding: 10px;
+  margin-top: 5px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+.contact-form textarea {
+  resize: vertical;
+}
+
+.contact-form button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  font-size: 1rem;
+  color: #fff;
+  background-color: #4CAF50;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.contact-form button:hover {
+  background-color: #45a049;
+}
+
+/* Contact Information Section */
+.contact-info-section {
+  margin-top: 40px;
+  text-align: center;
+}
+
+.contact-info-section h2 {
+  font-size: 2rem;
+  color: #ff5722;
+  margin-bottom: 20px;
+}
+
+.contact-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.contact-info div {
+  text-align: center;
+  padding: 20px;
+}
+
+.contact-info h3 {
+  color: #333;
+}
+
+.social-icons {
+  display: flex;
+  gap: 15px;
+  margin-top: 10px;
+}
+
+.social-icon {
+  color: #ff5722;
+  text-decoration: none;
+  font-size: 1.1rem;
+  transition: color 0.3s ease;
+}
+
+.social-icon:hover {
+  color: #e64a19;
+}
+.error-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f5f5f5;
+  color: #333;
+  font-family: Arial, sans-serif;
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+.error-content {
+  text-align: center;
+  max-width: 500px;
+  padding: 20px;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  animation: pop 0.6s ease-in-out;
+}
+
+@keyframes pop {
+  0% { transform: scale(0.8); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+.error-image {
+  width: 150px;
+  height: auto;
+  margin-bottom: 20px;
+}
+
+.error-content h1 {
+  font-size: 6rem;
+  color: #ff5722;
+  margin: 0;
+}
+
+.error-content h2 {
+  font-size: 2rem;
+  margin: 10px 0;
+}
+
+.error-content p {
+  font-size: 1.1rem;
+  color: #666;
+  margin-bottom: 20px;
+}
+
+.home-button {
+  padding: 12px 24px;
+  font-size: 1rem;
+  color: #fff;
+  background-color: #4CAF50;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.home-button:hover {
+  background-color: #45a049;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+.home-button:active {
+  transform: translateY(1px);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+
+
+
 @keyframes shimmer {
   0% {
       background-position: -200% 0;
@@ -245,3 +622,139 @@
   }
 }
 
+/* Main container for the restaurant menu */
+.res-menu-container {
+  max-width: 1000px;
+  margin: 20px auto;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+  color: #333;
+}
+
+/* Restaurant details section */
+.menu-res-details {
+  text-align: center;
+  margin-bottom: 20px;
+  background-color: #fff;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.menu-res-details h3 {
+  margin: 5px 0;
+  font-size: 1.6em;
+  font-weight: 600;
+  color: #333;
+}
+
+.menu-res-details h4 {
+  margin: 5px 0;
+  font-size: 1.2em;
+  font-weight: 500;
+  color: #666;
+}
+
+/* Section card (e.g., Appetizers, Mains) */
+.res-menu-card {
+  background-color: #fff;
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.res-menu-card h2 {
+  font-size: 1.4em;
+  font-weight: 600;
+  color: #444;
+  margin-bottom: 15px;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 8px;
+}
+
+/* Container for each item within a section */
+.item-container {
+  display: flex;
+  align-items: flex-start;
+  padding: 15px 0;
+  border-bottom: 1px solid #f1f1f1;
+}
+
+.item-container:last-child {
+  border-bottom: none;
+}
+
+/* Div wrapping text content for items */
+.item-container > div {
+  flex: 1;
+  padding-right: 15px;
+}
+
+/* Item name styling */
+.item-name {
+  font-size: 1.1em;
+  color: #333;
+  font-weight: 500;
+  margin-bottom: 5px;
+}
+
+/* Item price styling */
+.item-price {
+  font-size: 1em;
+  color: #888;
+  font-weight: 500;
+}
+
+/* Rating section styling */
+.rating-section-item {
+  font-size: 0.9em;
+  color: #666;
+  font-weight: 500;
+  margin-top: 5px;
+}
+
+/* Description styling */
+.item-section-description {
+  font-size: 0.9em;
+  color: #555;
+  margin-top: 5px;
+}
+
+/* Menu item image styling */
+.imge-item-menu {
+  width: 80px;
+  height: 80px;
+  border-radius: 6px;
+  object-fit: cover;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .menu-res-details h3 {
+      font-size: 1.3em;
+  }
+
+  .menu-res-details h4 {
+      font-size: 1.1em;
+  }
+
+  .res-menu-card h2 {
+      font-size: 1.2em;
+  }
+
+  .item-container {
+      flex-direction: column;
+      align-items: flex-start;
+  }
+
+  .item-container > div {
+      padding-right: 0;
+  }
+
+  .imge-item-menu {
+      margin-top: 10px;
+      width: 100%;
+      height: auto;
+  }
+}

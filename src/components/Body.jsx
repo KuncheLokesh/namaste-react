@@ -1,16 +1,17 @@
 import ResObj from "../utils/SampleData";
 import ResCard from "./ResCard";
-// import {useState} from "react"
+import {useState,useEffect} from "react"
 import Shimmer from "./Shimmer";
+import { Link } from "react-router-dom";
 
 const Body=()=>{
     // console.log(ResObj[0].info);
     // console.log(ResObj)
     // const [resList,setResList] =useState([])
-    const [resList,setResList]=React.useState([])
-    const [resshowlist,setResshowlist]=React.useState([]);
-    const [searchtext,setSearchText]=React.useState("");
-    React.useEffect(()=>{
+    const [resList,setResList]=useState([])
+    const [resshowlist,setResshowlist]=useState([]);
+    const [searchtext,setSearchText]=useState("");
+    useEffect(()=>{
         fetchData()
        
     },[])
@@ -39,7 +40,7 @@ const Body=()=>{
                 <button className="res-filter-btn" onClick={()=>{setResList(resList.filter((res)=>res.info.avgRating>=4.5))}}>Top Rated Restaurants</button>
             </div>
             <div  className="res-container">
-                {resshowlist.map((redinfo)=> <ResCard key={redinfo.info.id}   resData={redinfo.info}/>)}
+                {resshowlist.map((redinfo)=> <Link key={redinfo.info.id}  to={"/restaurant/"+redinfo.info.id}><ResCard    resData={redinfo.info}/></Link>)}
             </div>
         </div>
     )
