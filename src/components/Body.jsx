@@ -33,16 +33,42 @@ const Body=()=>{
         return <Shimmer />
     }
     return(
-        <div className="appbody">
-            <div className="filter">
-                <input  className="searchinput" type="text" value={searchtext} onChange={(e)=>{setSearchText(e.target.value)}} onKeyDown={(e)=>{e.key==='Enter'?filterRestaurants():""}}></input>
-                <button className="search-btn" onClick={filterRestaurants}>Search</button>
-                <button className="res-filter-btn" onClick={()=>{setResList(resList.filter((res)=>res.info.avgRating>=4.5))}}>Top Rated Restaurants</button>
-            </div>
-            <div  className="res-container">
-                {resshowlist.map((redinfo)=> <Link key={redinfo.info.id}  to={"/restaurant/"+redinfo.info.id}><ResCard    resData={redinfo.info}/></Link>)}
-            </div>
+        <div className="max-w-5xl mx-auto my-5 p-5 font-sans text-gray-800">
+        {/* Search Bar */}
+        <div className="flex justify-center items-center gap-4 my-5 p-4 bg-gray-100 rounded-md shadow-lg transition duration-300 hover:shadow-xl">
+          <input
+            className="p-3 text-lg w-72 border-2 border-gray-300 rounded-md focus:outline-none focus:border-orange-500 transition duration-300 placeholder-gray-500"
+            type="text"
+            placeholder="Search for restaurants..."
+            value={searchtext}
+            onChange={(e) => setSearchText(e.target.value)}
+            onKeyDown={(e) => (e.key === 'Enter' ? filterRestaurants() : '')}
+          />
+          <button
+            className="px-6 py-3 text-lg text-white bg-green-600 rounded-md shadow-md transition duration-300 transform hover:bg-green-500 hover:-translate-y-1 active:translate-y-0.5"
+            onClick={filterRestaurants}
+          >
+            Search
+          </button>
+          <button
+            className="px-6 py-3 text-lg text-white bg-orange-600 rounded-md shadow-md transition duration-300 transform hover:bg-orange-500 hover:-translate-y-1 active:translate-y-0.5"
+            onClick={() => setResList(resList.filter((res) => res.info.avgRating >= 4.5))}
+          >
+            Top Rated
+          </button>
         </div>
+      
+        {/* Restaurant List */}
+        <div className="flex flex-wrap gap-6 justify-center">
+          {resshowlist.map((redinfo) => (
+            <Link key={redinfo.info.id} to={`/restaurant/${redinfo.info.id}`} className="transform transition duration-300 hover:scale-105">
+              <ResCard resData={redinfo.info} />
+            </Link>
+          ))}
+        </div>
+      </div>
+      
+
     )
 }
 
