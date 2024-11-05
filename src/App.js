@@ -11,9 +11,10 @@ import Contact from './components/Contanct';
 import Error from './components/Error';
 import RestaurantMenu from './components/RestaurantMenu';
 import UserClassComponent from './components/UserClassComponent';
+import { Suspense,lazy } from 'react';
 
-
-
+import Shimmer from './components/Shimmer';
+const Grocery=lazy(()=>import("./components/Grocery"))
 const AppLayout=()=>{
    return  (
     <div className="app">
@@ -46,6 +47,9 @@ const AppRouter=createBrowserRouter([
             {
                 path:"/classcomponent",
                 element:<UserClassComponent/>
+            },{
+                path:"/grocery",
+                element:<Suspense fallback={<Shimmer/>}><Grocery/></Suspense>
             }
         ]
     },
