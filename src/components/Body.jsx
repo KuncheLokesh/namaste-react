@@ -3,6 +3,8 @@ import ResCard from "./ResCard";
 import {useState,useEffect} from "react"
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
+import TopRestaurant from "./TopRestaurant";
+// import TopRestaurant from "./TopRestaurant";
 
 const Body=()=>{
     // console.log(ResObj[0].info);
@@ -21,6 +23,7 @@ const Body=()=>{
         const resdetail= await resData.json();
         setResList(resdetail?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
         setResshowlist(resdetail?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+        // console.log(resdetail)
     }
 
     function filterRestaurants(){
@@ -28,12 +31,14 @@ const Body=()=>{
         // console.log(filterdata)
         setResshowlist(filterdata);
     }
+    const HighRated=TopRestaurant(ResCard)
 
-    if(resList.length==0){
+    if( resList.length==0){
         return <Shimmer />
     }
+    console.log("data",resList)
     return(
-        <div className="max-w-5xl mx-auto my-5 p-5 font-sans text-gray-800">
+        <div className=" mx-auto my-5 p-5 font-sans text-gray-800">
         {/* Search Bar */}
         <div className="flex justify-center items-center gap-4 my-5 p-4 bg-gray-100 rounded-md shadow-lg transition duration-300 hover:shadow-xl">
           <input
@@ -59,12 +64,13 @@ const Body=()=>{
         </div>
       
         {/* Restaurant List */}
-        <div className="flex flex-wrap gap-6 justify-center">
-          {resshowlist.map((redinfo) => (
-            <Link key={redinfo.info.id} to={`/restaurant/${redinfo.info.id}`} className="transform transition duration-300 hover:scale-105">
-              <ResCard resData={redinfo.info} />
-            </Link>
-          ))}
+        <div className="flex flex-wrap gap-3 justify-center">
+          {resshowlist.map((redinfo) => {
+                return (<Link key={redinfo.info.id} to={`/restaurant/${redinfo.info.id}`} className="transform transition duration-300 hover:scale-105">
+                  {redinfo.info.avgRating>=4.5?
+                (<HighRated key={redinfo.info.id} resData={redinfo.info}/>) : <ResCard resData={redinfo.info} />}
+                </Link>)
+          })}
         </div>
       </div>
       

@@ -18,8 +18,11 @@ const useRestaurantMenu=()=>{
         const menuData = await rawMenuData.json();
         setResMenu(menuData?.data);
         setResInfo(menuData?.data?.cards[2]?.card?.card?.info);
-        setMenuSections(menuData?.data?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards);
-        console.log(menuSections)
+        // setMenuSections(menuData?.data?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards);
+
+        const filtersectionofmenu=menuData?.data?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards.filter((c)=>(c?.card?.card?.["@type"]=="type.googleapis.com/swiggy.presentation.food.v2.ItemCategory"))
+        // console.log(filtersectionofmenu,"djvk")
+        setMenuSections(filtersectionofmenu);
     };
 
     return {resMenu,resInfo,menuSections};
