@@ -1,15 +1,17 @@
 import ResObj from "../utils/SampleData";
 import ResCard from "./ResCard";
-import {useState,useEffect} from "react"
+import {useState,useEffect, useContext} from "react"
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
 import TopRestaurant from "./TopRestaurant";
+import UserContext from "../utils/UserContext";
 // import TopRestaurant from "./TopRestaurant";
 
 const Body=()=>{
     // console.log(ResObj[0].info);
     // console.log(ResObj)
     // const [resList,setResList] =useState([])
+    const {loggedUser,setUserName}=useContext(UserContext);
     const [resList,setResList]=useState([])
     const [resshowlist,setResshowlist]=useState([]);
     const [searchtext,setSearchText]=useState("");
@@ -55,6 +57,10 @@ const Body=()=>{
           >
             Search
           </button>
+          <div>
+            <label>User Name</label>
+            <input  onChange={(e)=>(setUserName(e.target.value))} value={loggedUser}/>
+          </div>
           <button
             className="px-6 py-3 text-lg text-white bg-orange-600 rounded-md shadow-md transition duration-300 transform hover:bg-orange-500 hover:-translate-y-1 active:translate-y-0.5"
             onClick={() => setResList(resList.filter((res) => res.info.avgRating >= 4.5))}

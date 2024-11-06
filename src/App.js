@@ -11,16 +11,24 @@ import Contact from './components/Contanct';
 import Error from './components/Error';
 import RestaurantMenu from './components/RestaurantMenu';
 import UserClassComponent from './components/UserClassComponent';
-import { Suspense,lazy } from 'react';
+import { Suspense,lazy, useEffect, useState } from 'react';
 
 import Shimmer from './components/Shimmer';
+import UserContext from './utils/UserContext';
 const Grocery=lazy(()=>import("./components/Grocery"))
 const AppLayout=()=>{
+    const[userName,setUserName]=useState(null);
+    //Authentication
+    useEffect(()=>{
+        setUserName("keerthi");
+    },[])
    return  (
+    <UserContext.Provider value={{loggedUser : userName ,setUserName}} >
     <div className="app">
         <Header/>
         <Outlet/>
     </div>
+    </UserContext.Provider>
     )
 }
 const AppRouter=createBrowserRouter([

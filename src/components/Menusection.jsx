@@ -3,10 +3,10 @@ import Item from "./Item";
 
 
 
-const MenuSection=({section})=>{
-    const [showSection,setShowSection]=useState(false);
+const MenuSection=({section,showSection,setshowSection})=>{
+    // const [showSection,setShowSection]=useState(false);
     function handleClick(){
-        setShowSection(!showSection)
+        setshowSection();
     }
 
     return (<div className="mb-8">

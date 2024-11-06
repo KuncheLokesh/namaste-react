@@ -4,9 +4,10 @@ import { CDN_URL } from "../utils/constant";
 import useRestaurantMenu from "../utils/useRestaurantMenu";
 import Item from "./Item";
 import MenuSection from "./Menusection";
-
+import { useState } from "react";
 const RestaurantMenu = () => {
     const {resInfo,resMenu,menuSections}=useRestaurantMenu();
+    const [showSection,setShowSection]=useState(0);
    
     if (!resMenu) return <Shimmer />;
 
@@ -23,9 +24,9 @@ const RestaurantMenu = () => {
   </div>
 
   {/* Menu Sections */}
-  {menuSections  &&menuSections.map((section, index) => (
+  {menuSections  && menuSections.map((section, index) => (
     (
-      <MenuSection section={section}/>
+      <MenuSection key={index} section={section} showSection={showSection ==index ?true :false} setshowSection={()=>{setShowSection(showSection!==index ? index :null)}}/>
     ) 
   ))}
 </div>

@@ -1,7 +1,11 @@
+import { useContext } from "react";
 import { CDN_URL } from "../utils/constant";
+import UserContext from "../utils/UserContext";
+
 
 const Item=({item})=>{  
     const price = item.card.info.price || item.card.info.defaultPrice;
+    const{loggedUser}=useContext(UserContext);
     return (
         <div key={item.card.info.id} className="flex items-center justify-between bg-gray-100 p-4 rounded-lg shadow-sm mb-4">
           <div className="flex-1">
@@ -11,6 +15,9 @@ const Item=({item})=>{
             )}
             <h5 className="text-gray-500 text-sm">
               ⭐ {item.card.info.ratings.aggregatedRating.rating} ({item.card.info.ratings.aggregatedRating.ratingCount})
+            </h5>
+            <h5 className="text-gray-500 text-sm">
+            {loggedUser}
             </h5>
             <h6 className="text-gray-500 text-sm">{item.card.info.description}</h6>
           </div>
