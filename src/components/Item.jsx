@@ -1,11 +1,20 @@
 import { useContext } from "react";
 import { CDN_URL } from "../utils/constant";
 import UserContext from "../utils/UserContext";
+import { useDispatch } from "react-redux";
+import { addItem } from "../utils/cartSlice";
 
 
 const Item=({item})=>{  
     const price = item.card.info.price || item.card.info.defaultPrice;
     const{loggedUser}=useContext(UserContext);
+
+    const dispatch=useDispatch();
+
+    handleClick=()=>{
+      dispatch(addItem(item));
+    }
+
     return (
         <div key={item.card.info.id} className="flex items-center justify-between bg-gray-100 p-4 rounded-lg shadow-sm mb-4">
           <div className="flex-1">
@@ -26,7 +35,7 @@ const Item=({item})=>{
           {item.card.info.imageId ? (
             <img className="w-20 h-20 object-cover rounded-lg ml-4" src={`${CDN_URL}${item.card.info.imageId}`} alt={item.card.info.name} />
           ):<div className="w-20 h-20 object-cover rounded-lg ml-4"></div>}
-          <button className="absolute bottom-1/4 left-1/2 transform -translate-x-1/2 translate-y-full bg-black m-1 p-1 text-white w-16 rounded-lg">Add +</button>
+          <button onClick={handleClick} className="absolute bottom-1/4 left-1/2 transform -translate-x-1/2 translate-y-full bg-black m-1 p-1 text-white w-16 rounded-lg">Add +</button>
           </div>
         </div>
       );
